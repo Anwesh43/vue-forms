@@ -1,0 +1,6 @@
+{
+    "urls" : {
+        "dev_vue" : "https://cdn.jsdelivr.net/npm/vue/dist/vue.js",
+        "prod_vue" : "https://cdn.jsdelivr.net/npm/vue"
+    }
+}
