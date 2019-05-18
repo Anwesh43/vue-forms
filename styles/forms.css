@@ -1,0 +1,18 @@
+.formblock {
+    margin : 40px;
+}
+
+.submitBtn {
+    background-color: #f44336;
+    color : white;
+    font-size:  1.3em;
+    border : 0px solid black;
+}
+
+.submitBtn:disabled {
+    opacity: 0.5;
+}
+
+.red {
+    color: #f44336;
+}
