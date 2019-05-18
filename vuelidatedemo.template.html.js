@@ -19,7 +19,11 @@ module.exports = (url) => {
                         Age
                     </span>
                     <input type="text" v-model = "form.age">
-                    <p v-if = "$v.form.age.$invalid" :class="{red:true}">Please enter an age between 18 and 120</p>
+                    <p>
+                        <span v-if = "$v.form.age.integer && !$v.form.age.between" :class="{red:true}">Please enter an age between 18 and 120</p>
+                        <span v-if = "!$v.form.age.integer" :class="{red:true}">Age must be an integer</p>
+                        <span v-if = "!$v.form.age.required">Age is required</span>
+                    </p>
                 </div>
                 <div class = "formblock">
                     <button :disabled = "$v.form.$invalid" class = "submitBtn">Submit</button>
