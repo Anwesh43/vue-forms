@@ -11,18 +11,19 @@ module.exports = (url) => {
                     <span>
                         Name
                     </span>
-                    <input type="text" v-model = "form.name">
-                    <p v-if = "$v.form.name.$invalid" :class="{red:true}">name is required</p>
+                    <input type="text" v-model = "form.name" @blur = "$v.form.name.$touch()">
+                    <p v-if = "$v.form.name.$dirty && $v.form.name.$invalid" :class="{red:true}">name is required</p>
                 </div>
                 <div class = "formblock">
                     <span>
                         Age
                     </span>
-                    <input type="text" v-model = "form.age">
-                    <p>
-                        <span v-if = "$v.form.age.integer && !$v.form.age.between" :class="{red:true}">Please enter an age between 18 and 120</p>
-                        <span v-if = "!$v.form.age.integer" :class="{red:true}">Age must be an integer</p>
-                        <span v-if = "!$v.form.age.required">Age is required</span>
+                    <input type="text" v-model = "form.age" @blur = "$v.form.age.$touch()">
+                    <p v-if = "$v.form.age.$dirty">
+                        <span v-if = "!$v.form.age.required" :class="{red:true}">Age is required</span>
+                        <span v-if = "$v.form.age.integer && !$v.form.age.between" :class="{red:true}">Please enter an age between 18 and 120</span>
+                        <span v-if = "!$v.form.age.integer" :class="{red:true}">Age must be an integer</span>
+
                     </p>
                 </div>
                 <div class = "formblock">
